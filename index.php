@@ -11,7 +11,6 @@
     <form action="index.php" method="POST">
         <input type="search" id="searchbar" name="searchbar">
         <button>knapp</button>
-
     </form>
 
 
@@ -30,17 +29,19 @@
         }
 
 
-        $keywords = isset($_POST['searchbar']) ? '%'. $_POST['searchbar'] . '%' : '';
-       
-        $result = "SELECT Name FROM product where Name like :keywords";
-        $stmt = $pdo->prepare($result);
-        $stmt->bindParam(':keywords', $keywords);
-        $stmt->execute();
+        if(isset($_POST['searchbar']) && !empty(trim($_POST['searchbar']))){
 
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "<div>" . $row['Name'] . "</div>";  
+            $keywords = '%'. $_POST['searchbar'] . '%';
+           
+            $result = "SELECT Name FROM product where Name like :keywords";
+            $stmt = $pdo->prepare($result);
+            $stmt->bindParam(':keywords', $keywords);
+            $stmt->execute();
+    
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo "<div>" . $row['Name'] . "</div>"; 
+            }
         }
-
     ?>
 
 </body>
