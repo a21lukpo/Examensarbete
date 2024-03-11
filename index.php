@@ -21,7 +21,7 @@
         $password = "";
 
         try{
-            $pdo = new PDO("mysql:host=$servername;dbname=", $username, $password);
+            $pdo = new PDO("mysql:host=$servername;dbname=a21lukpo_se_db", $username, $password);
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connection was successful";
@@ -32,11 +32,14 @@
 
         $keywords = isset($_POST['searchbar']) ? '%'. $_POST['searchbar'] . '%' : '';
        
-        $result = "SELECT Name FROM product where Name like '$keywords'";
-        $stmt = $pdo->query($result);
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div id='link' onClick='addText(\"".$row['Name']."\");'>" . $row['Name'] . "</div>";  
-            }
+        $result = "SELECT Name FROM product where Name like :keywords";
+        $stmt = $pdo->prepare($result);
+        $stmt->bindParam(':keywords', $keywords);
+        $stmt->execute();
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            echo "<div>" . $row['Name'] . "</div>";  
+        }
 
     ?>
 
