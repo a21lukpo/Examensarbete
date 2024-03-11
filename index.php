@@ -6,31 +6,37 @@
     <title>Document</title>
 </head>
 <body>
-    <p>hello</p>
 
+
+    <form action="index.php" method="POST">
+        <input type="search" id="searchbar" name="searchbar">
+        <button>knapp</button>
+
+    </form>
 
 
     <?php
-    $servername = "name";
-    $username = "username";
-    $password = "password";
+        $servername = "";
+        $username = "";
+        $password = "";
+
+        try{
+            $pdo = new PDO("mysql:host=$servername;dbname=", $username, $password);
+
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "Connection was successful";
+        } catch(PDOException $e){
+            echo "Connection failed: " . $e->getMessage();
+        }
 
 
-    try{
-        $connection = new PDO("mysql:host=$servername;dbname=name", $username, $password);
-
-        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connection was successful";
-    } catch(PDOException $e){
-        echo "Connection failed: " . $e->getMessage();
-    }
-
-    $query=$connection->prepare("SELECT * FROM product");
-    $query->execute();
-
-    $result = $query -> fetch();
-
-    print_r($result);
+        $keywords = isset($_POST['searchbar']) ? '%'. $_POST['searchbar'] . '%' : '';
+       
+        $result = "SELECT Name FROM product where Name like '$keywords'";
+        $stmt = $pdo->query($result);
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo "<div id='link' onClick='addText(\"".$row['Name']."\");'>" . $row['Name'] . "</div>";  
+            }
 
     ?>
 
