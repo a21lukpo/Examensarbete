@@ -3,6 +3,9 @@ body{
 }
 
 header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 75px;
     background-color: blue;
@@ -49,12 +52,7 @@ header{
     grid-row-start: 2;
 }
 
-#searchForm{
-    display: flex;
-    justify-content: center;
-    
-}
-
 #searchbar{
     width: 500px;
+    border-radius: 10px;
 }

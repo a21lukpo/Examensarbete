@@ -9,7 +9,7 @@
 <body>
 
     <header>
-        <form action="index.php" method="POST" id="searchForm">
+        <form action="index.php" method="POST">
             <input type="search" id="searchbar" name="searchbar">
             <button>knapp</button>
         </form>
@@ -33,7 +33,7 @@
 
             $keywords = '%'. $_POST['searchbar'] . '%';
            
-            $result = "SELECT * FROM products where name like :keywords";
+            $result = "SELECT * FROM products where name like :keywords OR description like :keywords" ;
             $stmt = $pdo->prepare($result);
             $stmt->bindParam(':keywords', $keywords);
             $stmt->execute();
