@@ -1,0 +1,35 @@
+#product{
+    display: grid;
+    width: 400px;
+    height: 500px;
+    border: 2px solid black;
+    grid-template-columns: 200px 100px 100px;
+    grid-template-rows: 100px 200px 200px;
+    margin: 10px;
+}
+
+#productName{
+    grid-column-start: 1;
+    font-weight: bold;
+    margin: 10px 0 0 10px
+}
+
+#productPrice{
+    grid-column-start: 2;
+    grid-row-start: 2;
+    align-self: center;
+}
+
+#productDescription{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    margin-left: 5px;
+}
+
+#productImage{
+    width: 200px;
+    height: 200px;
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
