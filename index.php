@@ -24,7 +24,6 @@
             $pdo = new PDO("mysql:host=$servername;dbname=a21lukpo_se_db", $username, $password);
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connection was successful";
         } catch(PDOException $e){
             echo "Connection failed: " . $e->getMessage();
         }
