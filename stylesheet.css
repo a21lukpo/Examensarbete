@@ -24,6 +24,11 @@ header{
     float: left;
     box-shadow: inset 5px -3px 30px 4px rgba(0,0,0,0.2);
     border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+#product:hover{
+    transform: scale(1.05);
 }
 
 #productName{
