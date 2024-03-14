@@ -7,12 +7,10 @@
 </head>
 <body>
 
-
     <form action="index.php" method="POST">
         <input type="search" id="searchbar" name="searchbar">
         <button>knapp</button>
     </form>
-
 
     <?php
         $servername = "";
@@ -28,7 +26,6 @@
             echo "Connection failed: " . $e->getMessage();
         }
 
-
         if(isset($_POST['searchbar']) && !empty(trim($_POST['searchbar']))){
 
             $keywords = '%'. $_POST['searchbar'] . '%';
@@ -42,7 +39,6 @@
                 echo "<div>" . $row['name'] . "</div>"; 
                 echo "<div>" . $row['price'] . " " . $row['currency'] . "</div>"; 
                 echo "<div>" . $row['description'] . "</div>";
-               
                
                 $image = $row['images'];
                 $image = ltrim($image, "['");
