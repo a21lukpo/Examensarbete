@@ -33,15 +33,23 @@
 
             $keywords = '%'. $_POST['searchbar'] . '%';
            
-            $result = "SELECT * FROM product where Name like :keywords";
+            $result = "SELECT * FROM products where name like :keywords";
             $stmt = $pdo->prepare($result);
             $stmt->bindParam(':keywords', $keywords);
             $stmt->execute();
     
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div>" . $row['Name'] . "</div>"; 
-                echo "<div>" . $row['Price'] . "</div>"; 
-                echo "<div>" . $row['InStock'] . "</div>"; 
+                echo "<div>" . $row['name'] . "</div>"; 
+                echo "<div>" . $row['price'] . " " . $row['currency'] . "</div>"; 
+                echo "<div>" . $row['description'] . "</div>";
+               
+               
+                $image = $row['images'];
+                $image = ltrim($image, "['");
+                $shownImage = explode(",", $image);
+                echo '<img src="' . $shownImage[0] . '" alt="image">';
+                echo "<div>" . $shownImage[0] . "</div>";
+                
             }
         }
     ?>
