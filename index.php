@@ -8,10 +8,12 @@
 </head>
 <body>
 
-    <form action="index.php" method="POST">
-        <input type="search" id="searchbar" name="searchbar">
-        <button>knapp</button>
-    </form>
+    <header>
+        <form action="index.php" method="POST" id="searchForm">
+            <input type="search" id="searchbar" name="searchbar">
+            <button>knapp</button>
+        </form>
+    </header>
 
     <?php
         $servername = "";

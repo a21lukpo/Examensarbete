@@ -1,11 +1,22 @@
+body{
+    margin: 0;
+}
+
+header{
+    width: 100%;
+    height: 75px;
+    background-color: blue;
+}
+
 #product{
     display: grid;
     width: 400px;
-    height: 500px;
+    height: 410px;
     border: 2px solid black;
     grid-template-columns: 200px 100px 100px;
-    grid-template-rows: 100px 200px 200px;
-    margin: 10px;
+    grid-template-rows: 100px 200px 110px;
+    margin: 20px 0 0 45px;
+    float: left;
 }
 
 #productName{
@@ -25,6 +36,10 @@
     grid-column-end: 3;
     grid-row-start: 3;
     margin-left: 5px;
+
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #productImage{
@@ -32,4 +47,14 @@
     height: 200px;
     grid-column-start: 1;
     grid-row-start: 2;
+}
+
+#searchForm{
+    display: flex;
+    justify-content: center;
+    
+}
+
+#searchbar{
+    width: 500px;
 }
