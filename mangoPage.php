@@ -15,7 +15,7 @@
 
         <form action="mangoPage.php" method="POST">
             <input type="search" id="searchbar" name="searchbar">
-            <button>knapp</button>
+            <button id="searchButton">knapp</button>
         </form>
     </header>
 
@@ -23,7 +23,6 @@
         $servername = "";
         $username = "";
         $password = "";
-
         try{
             $pdo = new PDO("mysql:host=$servername;dbname=a21lukpo_se_db", $username, $password);
 
