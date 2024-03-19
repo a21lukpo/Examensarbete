@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mango PHP</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <title>Asos PHP</title>
+    <link rel="stylesheet" href="../stylesheet.css">
 </head>
 <body>
 
     <header>
-        <a href="index.html">
+        <a href="../index.html">
             <button>Start Page</button>
         </a>
 
-        <form action="mangoPage.php" method="POST">
+        <form action="asosPage.php" method="POST">
             <input type="search" id="searchbar" name="searchbar">
             <button id="searchButton">knapp</button>
         </form>
@@ -23,8 +23,9 @@
         $servername = "";
         $username = "";
         $password = "";
+
         try{
-            $pdo = new PDO("mysql:host=$servername;dbname=a21lukpo_se_db", $username, $password);
+            $pdo = new PDO("mysql:host=$servername;dbname=a21lukpo_se_db_2", $username, $password);
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch(PDOException $e){
