@@ -12,6 +12,16 @@ header{
     background-image: linear-gradient(to bottom right, #ff0f7b, #f89b29);
 }
 
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(204,204,204,0.9);
+    color: black;
+    text-align: center;
+}
+
 #product{
     display: grid;
     width: 400px;

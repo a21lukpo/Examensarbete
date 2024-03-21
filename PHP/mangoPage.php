@@ -55,5 +55,9 @@
         }
     ?>
 
+    <footer>
+        <p>The data that is used is taken from <a href="https://www.kaggle.com/datasets/maparla/mango-products?select=store_mango.csv">Kaggle</a> under license <a href="https://www.mit.edu/~amini/LICENSE.md">MIT</a></p> 
+    </footer>
+
 </body>
 </html>

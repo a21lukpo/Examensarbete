@@ -48,12 +48,16 @@
                     $image = ltrim($image, "['");
                     $shownImage = explode(",", $image);
                     echo "<img src='" . $shownImage[0] . "' alt='image' id='productImage'>";
-                    echo "<div id='productPrice'>" . $row['price'] . " " . $row['currency'] . "</div>"; 
+                    echo "<div id='productPrice'>" . $row['price'] . " EUR" . "</div>"; 
                     echo "<div id='productDescription'>" . $row['description'] . "</div>";
                 echo "</div>";
             }
         }
     ?>
+    
+    <footer>
+        <p>The data that is used is taken from <a href="https://www.kaggle.com/datasets/trainingdatapro/asos-e-commerce-dataset-30845-products">Kaggle</a> under license <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</a></p> 
+    </footer>
 
 </body>
 </html>
