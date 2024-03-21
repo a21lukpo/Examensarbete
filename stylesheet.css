@@ -77,3 +77,25 @@ footer{
     width: 500px;
     border-radius: 10px;
 }
+
+#phpPages{
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    left: 0;
+    background-color: red;
+    color: white;
+}
+
+#nodePages{
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    right: 0;
+    background-color: blue;
+    color: white;
+}
+
+.pageLinks{
+    color: white;
+}
