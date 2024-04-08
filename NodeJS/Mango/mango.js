@@ -33,14 +33,22 @@ app.post('/search', (req, res) =>{
             return;
         }
         
-        let html = '<div>';
+        let html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sökbar!!</title><link rel="stylesheet" href="stylesheet.css"></head><body>';
+        html += '<header>';
+        html += '<form action="/search" method="POST">';
+        html += '<input type="text" name="searchbar" id="searchbar" value="' + searchTerm + '">';
+        html += '<button type="submit">SÖk!</button>';
+        html += '</form>';
+        html += '</header>';
+        
         results.forEach(product => {
-            html += `<div>`;
-                html += `<p>${product.name}</p>`;
-                html += `<p>${product.description}</p>`;
+            html += `<div id='product'>`;
+                html += `<p id='productName'>${product.name}</p>`;
+                html += `<p id='productPrice'>${product.price} EUR</p>`;
+                html += `<p id='productDescription'>${product.description}</p>`;
             html += `</div>`;
         });
-        html += '</div>';
+        html += '</body></html>';
 
         res.send(html);
     
