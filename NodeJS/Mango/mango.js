@@ -34,7 +34,7 @@ app.post('/search', (req, res) =>{
             return;
         }
         
-        let html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sökbar!!</title><link rel="stylesheet" href="stylesheet.css"></head><body>';
+        let html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mango NodeJS</title><link rel="stylesheet" href="stylesheet.css"></head><body>';
         html += '<header>';
         html += '<form action="/search" method="POST">';
         html += '<input type="text" name="searchbar" id="searchbar" value="' + searchTerm + '">';
@@ -44,12 +44,12 @@ app.post('/search', (req, res) =>{
         
         results.forEach(product => {
             html += `<div id='product'>`;
-                html += `<p id='productName'>${product.name}</p>`;
+                html += `<div id='productName'>${product.name}</div>`;
                 let image = product.images.substring(2, product.images.length - 2);
                 let shownImage = image.split(',');
                 html += `<img src='${shownImage[0]}' alt='Product Image' id='productImage'>`;
-                html += `<p id='productPrice'>${product.price} EUR</p>`;
-                html += `<p id='productDescription'>${product.description}</p>`;
+                html += `<div id='productPrice'>${product.price} EUR</div>`;
+                html += `<div id='productDescription'>${product.description}</div>`;
             html += `</div>`;
         });
 
@@ -59,7 +59,6 @@ app.post('/search', (req, res) =>{
         html += '</body></html>';
 
         res.send(html);
-    
     });
 });
 
