@@ -4,6 +4,7 @@ const port = 8080;
 const mysql = require('mysql');
 
 app.use(express.urlencoded({ extended: true}));
+app.use(express.static(__dirname));
 
 const connection = mysql.createConnection({
     host: '',
@@ -44,10 +45,17 @@ app.post('/search', (req, res) =>{
         results.forEach(product => {
             html += `<div id='product'>`;
                 html += `<p id='productName'>${product.name}</p>`;
+                let image = product.images.substring(2, product.images.length - 2);
+                let shownImage = image.split(',');
+                html += `<img src='${shownImage[0]}' alt='Product Image' id='productImage'>`;
                 html += `<p id='productPrice'>${product.price} EUR</p>`;
                 html += `<p id='productDescription'>${product.description}</p>`;
             html += `</div>`;
         });
+
+        html += '<footer>';
+        html += '<p>The data that is used is taken from <a href="https://www.kaggle.com/datasets/trainingdatapro/asos-e-commerce-dataset-30845-products">Kaggle</a> under license <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</a></p>';
+        html += '</footer>';
         html += '</body></html>';
 
         res.send(html);
