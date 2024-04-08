@@ -54,7 +54,7 @@ app.post('/search', (req, res) =>{
         });
 
         html += '<footer>';
-        html += '<p>The data that is used is taken from <a href="https://www.kaggle.com/datasets/trainingdatapro/asos-e-commerce-dataset-30845-products">Kaggle</a> under license <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</a></p>';
+        html += '<p>The data that is used is taken from <a href="https://www.kaggle.com/datasets/maparla/mango-products?select=store_mango.csv">Kaggle</a> under license <a href="https://www.mit.edu/~amini/LICENSE.md">MIT</a></p>';
         html += '</footer>';
         html += '</body></html>';
 
