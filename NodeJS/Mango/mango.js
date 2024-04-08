@@ -24,17 +24,27 @@ app.get('/', (req, res) => {
 app.post('/search', (req, res) =>{
     const searchTerm = req.body.searchbar;
 
-    const query = `SELECT * FROM products WHERE name LIKE ?`
+    const query = `SELECT * FROM products WHERE name LIKE ? OR description LIKE ?`
 
-    connection.query(query, [`%${searchTerm}%`], (error, results, fields) => {
+    connection.query(query, [`%${searchTerm}%`, `%${searchTerm}%`], (error, results, fields) => {
         if (error){
             console.error('Error: ', error);
             res.status(500).send('Error Searching');
             return;
         }
         
-        res.send(results);
-    })
+        let html = '<div>';
+        results.forEach(product => {
+            html += `<div>`;
+                html += `<p>${product.name}</p>`;
+                html += `<p>${product.description}</p>`;
+            html += `</div>`;
+        });
+        html += '</div>';
+
+        res.send(html);
+    
+    });
 });
 
 app.listen(port, () => {
