@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mango NodeJS</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 
-    <form action="/search" method="POST">
-        <input type="text" name="searchbar" id="searchbar">
-        <button type="submit">SÖk!</button>
-    </form>
+    <header>
+        <form action="/search" method="POST">
+            <input type="text" name="searchbar" id="searchbar">
+            <button id="searchButton">SÖk!</button>
+        </form>
+    </header>
+
+    <footer>
+        <p>The data that is used is taken from <a href="https://www.kaggle.com/datasets/maparla/mango-products?select=store_mango.csv">Kaggle</a> under license <a href="https://www.mit.edu/~amini/LICENSE.md">MIT</a></p>    
+    </footer>
 
 </body>
 </html>
