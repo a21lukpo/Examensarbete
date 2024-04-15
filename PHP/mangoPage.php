@@ -47,7 +47,7 @@
                     $image = $row['images'];
                     $image = ltrim($image, "['");
                     $shownImage = explode(",", $image);
-                    echo "<img src='" . $shownImage[0] . "' alt='image' id='productImage'>";
+                    echo "<div id='productImage'>" . $shownImage[0] . "</div>";
                     echo "<div id='productPrice'>" . $row['price'] . " " . $row['currency'] . "</div>"; 
                     echo "<div id='productDescription'>" . $row['description'] . "</div>";
                 echo "</div>";

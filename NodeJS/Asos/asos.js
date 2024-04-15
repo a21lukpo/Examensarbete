@@ -47,7 +47,7 @@ app.post('/search', (req, res) =>{
                 html += `<div id='productName'>${product.name}</div>`;
                 let image = product.images.substring(2, product.images.length - 2);
                 let shownImage = image.split(',');
-                html += `<img src='${shownImage[0]}' alt='Product Image' id='productImage'>`;
+                html += `<div id='productImage'>${shownImage[0]}</div>`;
                 html += `<div id='productPrice'>${product.price} EUR</div>`;
                 html += `<div id='productDescription'>${product.description}</div>`;
             html += `</div>`;
