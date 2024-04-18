@@ -38,7 +38,7 @@ app.post('/search', (req, res) =>{
         html += '<header>';
         html += '<form action="/search" method="POST">';
         html += '<input type="text" name="searchbar" id="searchbar" value="' + searchTerm + '">';
-        html += '<button type="submit">SÖk!</button>';
+        html += '<button id="searchButton">SÖk!</button>';
         html += '</form>';
         html += '</header>';
         
