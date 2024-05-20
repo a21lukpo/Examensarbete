@@ -84,7 +84,6 @@ var origRandom = Math.random;
         GM_setValue('results', results);
         GM_setValue('counter', counter);
 
-        console.log(counter);
         var searchString;
         Math.setSeed(counter);
         var randomIndex = Math.floor(Math.random() * words.length);
