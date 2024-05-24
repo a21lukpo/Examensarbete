@@ -119,7 +119,9 @@ var origRandom = Math.random;
     }else if(counter >= maxSearches){
         download();
     }else{
-        measureTime();
+        setTimeout(()=>{
+            measureTime();
+        }, 1000)
     }
 
 })();
